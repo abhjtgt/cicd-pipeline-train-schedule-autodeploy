@@ -20,18 +20,12 @@ pipeline {
             }
         }
 		stage('Build Docker Image') {
-            when {
-                branch 'try1'
-            }
             steps {
 				sh "java -version"
                 }
         }
         
 		stage('Build Docker Image2') {
-            when {
-                branch 'try1'
-            }
             steps {
 				sh "java -version"
                 }
