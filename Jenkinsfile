@@ -21,7 +21,7 @@ pipeline {
         }
 		stage('Build Docker Image') {
             when {
-                branch 'master'
+                branch 'try1'
             }
             steps {
 				sh "java -version"
