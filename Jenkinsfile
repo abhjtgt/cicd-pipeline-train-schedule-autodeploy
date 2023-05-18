@@ -12,7 +12,7 @@ pipeline {
                 echo 'Running build automation'
 				sh '''
 				    java -version
-					export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
+					export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
 					export PATH=$JAVA_HOME/bin:$PATH
 					java -version
 				    ./gradlew build --no-daemon
