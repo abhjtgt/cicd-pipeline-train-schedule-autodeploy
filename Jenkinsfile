@@ -4,32 +4,26 @@ pipeline {
     }    
 	environment {
         //be sure to replace "bhavukm" with your own Docker Hub username
-        DOCKER_IMAGE_NAME = "bhavukm/train-schedule"
+        DOCKER_IMAGE_NAME = "abhjtdk/train-schedule"
     }
     stages {
         stage('Build') {
             steps {
                 echo 'Running build automation'
-				sh '''
-					java -version
-					export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-					export PATH=$JAVA_HOME/bin:$PATH
-					java -version
-				'''
-               
             }
         }
-		stage('Build Docker Image') {
+        stage('Build Docker Image') {
+            when {
+                branch 'master'
+            }
             steps {
-				sh "java -version"
+                script {
+                    app = docker.build(DOCKER_IMAGE_NAME)
+                    app.inside {
+                        sh 'echo Hello, World!'
+                    }
                 }
+            }
         }
-        
-		stage('Build Docker Image2') {
-            steps {
-				sh "java -version"
-                }
-        }
-		
 	}
 }
