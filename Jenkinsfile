@@ -10,6 +10,15 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Running build automation'
+				sh '''
+				    java -version
+					export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
+					export PATH=$JAVA_HOME/bin:$PATH
+					java -version
+				    ./gradlew build --no-daemon
+					java -version
+				   '''
+                archiveArtifacts artifacts: 'dist/trainSchedule.zip'
             }
         }
         stage('Build Docker Image') {
