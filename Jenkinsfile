@@ -1,8 +1,8 @@
 pipeline {
     agent {
         label 'jenslave'
-    }
-    environment {
+    }    
+	environment {
         //be sure to replace "bhavukm" with your own Docker Hub username
         DOCKER_IMAGE_NAME = "bhavukm/train-schedule"
     }
@@ -10,8 +10,9 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Running build automation'
-                sh 'echo "./gradlew build --no-daemon"'
+                sh './gradlew build --no-daemon'
+                archiveArtifacts artifacts: 'dist/trainSchedule.zip'
             }
         }
-	}
+    }
 }
