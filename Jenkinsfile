@@ -16,8 +16,7 @@ pipeline {
 					export PATH=$JAVA_HOME/bin:$PATH
 					java -version
 				'''
-                sh './gradlew build --no-daemon'
-                archiveArtifacts artifacts: 'dist/trainSchedule.zip'
+               
             }
         }
 		stage('Build Docker Image') {
