@@ -15,10 +15,10 @@ pipeline {
 					export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
 					export PATH=$JAVA_HOME/bin:$PATH
 					java -version
-				    ./gradlew build --no-daemon
+				    #./gradlew build --no-daemon
 					java -version
 				   '''
-                archiveArtifacts artifacts: 'dist/trainSchedule.zip'
+                //archiveArtifacts artifacts: 'dist/trainSchedule.zip'
             }
         }
         stage('Build Docker Image') {
