@@ -37,6 +37,25 @@
 			]
 		},
 		{
+			"name": "Vande Bharat Express",
+			"stops": [
+				{
+					"station": "Mumbai",
+					"status": "ON-TIME",
+					"arrival": "10:00am",
+					"departure": "10:00am"
+				},
+				{
+					"station": "New Delhi",
+					"status": "DELAYED",
+					"arrival": "10:00pm",
+					"departure": "11:00pm",
+					"delayedArrival": "10:20pm",
+					"delayedDeparture": "11:20pm"
+				}
+			]
+		},
+		{
 			"name": "Orient Express",
 			"stops": [
 				{
